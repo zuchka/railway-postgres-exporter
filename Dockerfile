@@ -8,6 +8,6 @@ COPY postgres_exporter.yml /postgres_exporter.yml
 
 EXPOSE     9187
 # USER       nobody
-ARG DATA_SOURCE_NAME="postgresql://postgres:G5mznjsmLnnxRwR5fzTW@containers-us-west-129.railway.app:6959/railway"
+ENV DATA_SOURCE_NAME=$DATABASE_URL
 ENTRYPOINT [ "/bin/postgres_exporter" ]
 # CMD [--config.file="/etc/postgres_exporter/postgres_exporter.yml"]
