@@ -1,5 +1,3 @@
-# ARG ARCH="amd64"
-# ARG OS="linux"
 FROM prometheuscommunity/postgres-exporter:latest
 
 # ARG ARCH="amd64"
@@ -11,5 +9,5 @@ COPY postgres_exporter.yml /postgres_exporter.yml
 EXPOSE     9187
 # USER       nobody
 ARG DATA_SOURCE_NAME="postgresql://postgres:G5mznjsmLnnxRwR5fzTW@containers-us-west-129.railway.app:6959/railway"
-# ENTRYPOINT [ "/bin/postgres_exporter" ]
-# ARG config.file="/etc/postgres_exporter/postgres_exporter.yml"
+ENTRYPOINT [ "/bin/postgres_exporter" ]
+# CMD [--config.file="/etc/postgres_exporter/postgres_exporter.yml"]
